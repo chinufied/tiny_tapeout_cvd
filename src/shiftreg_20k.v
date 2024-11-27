@@ -38,11 +38,11 @@ module tt_um_shiftreg (
     input [7:0] data_in,
     output [7:0] data_out
     );
-    parameter N = 20;  // Number of registers
+    parameter N = 2000;  // Number of registers
     reg [7:0] reg_array [0:N-1];
 
     integer i;
-
+    /*verilator lint_off*/
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             for (i = 0; i < N; i = i + 1) begin
@@ -55,7 +55,7 @@ module tt_um_shiftreg (
             end
         end
     end
-
+    /*verilator lint_on*/
   assign data_out = reg_array[N-1];
 
 endmodule
