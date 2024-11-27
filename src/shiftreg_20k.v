@@ -38,24 +38,24 @@ module tt_um_shiftreg (
     input [7:0] data_in,
     output [7:0] data_out
     );
-    parameter N = 2000;  // Number of registers
+    parameter N = 1000;  // Number of registers
     reg [7:0] reg_array [0:N-1];
-
-    integer i;
-    /* verilator lint_off UNROLL */
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            for (i = 0; i < N; i = i + 1) begin
+    generate
+    genvar i;
+    for (i = 0; i < N; i = i + 1) begin : gen_reset
+        always @(posedge clk or posedge rst) begin
+            if (rst) begin
                 reg_array[i] <= 8'd0;
-            end
-        end else if (shift_enable) begin
-            reg_array[0] <= data_in;
-            for (i = 1; i < N; i = i + 1) begin
-                reg_array[i] <= reg_array[i-1];
+            end else if (shift_enable) begin
+                if (i == 0)
+                    reg_array[0] <= data_in;
+                else
+                    reg_array[i] <= reg_array[i-1];
             end
         end
     end
-    /* verilator lint_on UNROLL */
+endgenerate
+
   assign data_out = reg_array[N-1];
    
 endmodule
