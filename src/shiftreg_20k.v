@@ -38,7 +38,7 @@ module tt_um_shiftreg (
     input [7:0] data_in,
     output [7:0] data_out
     );
-    parameter N = 99;  // Number of registers
+    parameter N = 20;  // Number of registers
     reg [7:0] reg_array [0:N-1];
 
     integer i;
