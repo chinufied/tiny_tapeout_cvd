@@ -55,9 +55,9 @@ module tt_um_shiftreg (
             end
         end
     end
-    //verilator lint_on
+    
   assign data_out = reg_array[N-1];
-
+    //verilator lint_on
 endmodule
 
 
