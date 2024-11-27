@@ -28,7 +28,7 @@ module tt_um_shiftreg (
     .rst(rst_n),
     .shift_enable(ena),
     .data_in(ui_in),
-    .data_out(ui_out)
+    .data_out(uo_out)
     );
   endmodule
   module shiftreg (
