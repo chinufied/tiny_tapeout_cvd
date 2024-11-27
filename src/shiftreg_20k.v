@@ -42,7 +42,7 @@ module tt_um_shiftreg (
     reg [7:0] reg_array [0:N-1];
 
     integer i;
-    //verilator lint_off UNUSED
+    /* verilator unroll_count 2000 */
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             for (i = 0; i < N; i = i + 1) begin
@@ -55,7 +55,7 @@ module tt_um_shiftreg (
             end
         end
     end
-     //verilator lint_on UNUSED
+    
   assign data_out = reg_array[N-1];
    
 endmodule
