@@ -23,7 +23,7 @@ module tt_um_shiftreg (
 
   // List all unused inputs to prevent warnings
   wire _unused = &{uio_out, 1'b0};
-  sr shiftreg  (
+   shiftreg sr(
     .clk(clk),
     .rst(rst_n),
     .shift_enable(ena),
