@@ -17,18 +17,18 @@ module tt_um_shiftreg (
 );
 
   // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = 0;  // Example: ou_out is the sum of ui_in and uio_in
+  //assign uo_out  = 0;  // Example: ou_out is the sum of ui_in and uio_in
   //assign uio_out = 0;
   assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{uio_out, 1'b0};
+    wire _unused = &{uio_out,uio_in, 1'b0};
    shiftreg sr(
     .clk(clk),
     .rst(rst_n),
     .shift_enable(ena),
-    .data_in(uio_in),
-    .data_out(uio_out)
+    .data_in(ui_in),
+    .data_out(ui_out)
     );
   endmodule
   module shiftreg (
