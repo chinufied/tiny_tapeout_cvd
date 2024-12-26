@@ -70,7 +70,7 @@ wire [width-1 :0] phase_r;
 	wire [5:0] sine1;
 	wire signed [5:0] square1,sawtooth1,triangular1 ;
 
-accumulator #(.W(width)) i0  
+accumulator i0  
        (	  .clk_in(clk_in), .enable_in(enable_in),
 		  .updown_in(updown_acc), .freq_in(FTW_in),
 		  .count_out(phase_r)
