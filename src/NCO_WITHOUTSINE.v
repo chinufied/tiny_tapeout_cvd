@@ -90,9 +90,9 @@ end
 assign updown_acc = (wavesel_in == 2'b11) ? 1'b1 : 1'b0;
 //assign sine_en = (wavesel_in == 2'b00) ? 1'b1 : 1'b0;
 
-	assign sawtooth1 = phase_r[width-1 : width-6] - 2048;
-	assign triangular1 = phase_r[width-1 : width-6] - 2048; //truncating phase accumulator bits to 12 
-	assign square1 = (phase_r[5]==1) ? 12'b100000000000 : 12'b011111111111;
+	assign sawtooth1 = phase_r[width-1 : width-6] - 32;
+	assign triangular1 = phase_r[width-1 : width-6] - 32; //truncating phase accumulator bits to 12 
+	assign square1 = (phase_r[5]==1) ? 6'b100000 : 6'b011111;
 
 endmodule 
 
