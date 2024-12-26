@@ -17,7 +17,7 @@ module tt_um_dds (
   assign uio_oe  = 0;
 	assign uo_out[7:6]=uio_in[7:6];
   // List all unused inputs to prevent warnings
-	wire _unused = &{,rst_n, 1'b0};
+	wire _unused = &{rst_n, 1'b0};
    DDS_top dds_nosine(
     .clock_in(clk),
     .enable_in(ena),
