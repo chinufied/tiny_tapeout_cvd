@@ -15,9 +15,9 @@ module tt_um_dds (
   //assign uo_out  = 0;  // Example: ou_out is the sum of ui_in and uio_in
   assign uio_out = 0;
   assign uio_oe  = 0;
-
+	assign uo_out[7:6]=uio_in[7:6];
   // List all unused inputs to prevent warnings
-	wire _unused = &{rst_n, 1'b0};
+	wire _unused = &{,rst_n, 1'b0};
    DDS_top dds_nosine(
     .clock_in(clk),
     .enable_in(ena),
@@ -40,7 +40,7 @@ module DDS_top #(parameter width_top=6)(clock_in,enable_in,wavesel_in,FTW_IN,amp
 	 wire signed [12:0] mult_result;   // xxxxx
  
  //wire signed [11:0] nco_wave_sign;
- assign amp_temp = {1'b0,amp_in};
+assign amp_temp = {1'b0,amp_in};
 
 NCO #(.width(width_top)) nco1  
          (
@@ -51,7 +51,7 @@ NCO #(.width(width_top)) nco1
 
 
 assign mult_result = amp_temp * nco_wave;
-	 assign finwave_out = mult_result [11:6] ;      //    nco_wave
+assign finwave_out = mult_result [11:6] ;      //    nco_wave
 
 
 endmodule 
@@ -66,8 +66,7 @@ input [1:0] wavesel_in;
 
 //wire sine_en;
 wire updown_acc;
-wire [width-1 :0] phase_r;
-	wire [5:0] sine1;
+	wire [width-1 :0] phase_r;
 	wire signed [5:0] square1,sawtooth1,triangular1 ;
 
 accumulator i0  
@@ -150,10 +149,10 @@ always @(posedge clk_in)
 begin
   
   if (enable_in) begin
-    count_reg = count_temp;
-	 dir_reg = dir_temp ; end 
+    count_reg <= count_temp;
+	 dir_reg <= dir_temp ; end 
   else
-    count_reg=0;
+    count_reg<=0;
 end 
 
 assign count_out = count_reg;
