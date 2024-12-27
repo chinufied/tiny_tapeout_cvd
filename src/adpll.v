@@ -228,9 +228,9 @@ always@(posedge vco_clk)
 	begin
 		in_reg <= in;
 		if((in_reg == in))
-			reset = 1;
+			reset <= 1;
 		else
-			reset = 0;
+			reset <= 0;
 	end
 
 always@(*)
