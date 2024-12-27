@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "GDS adpll"      # Project title
+  title:        "GDS adpll2"      # Project title
   author:       "Chinmay Dhole"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "adpll"      # One line description of what your project does
@@ -17,7 +17,7 @@ project:
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
-    - "adpll.v"
+    - "adpll_v2.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:
