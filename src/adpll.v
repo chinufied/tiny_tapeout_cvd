@@ -115,22 +115,22 @@ module encoder (in, out);
 	output reg [3:0] out = 0;    
 	always@(*)
 	begin  
-		if((16'hffff & in) == 16'hffff) out <= 4'b0111;
-		else if((16'h7fff & in) == 16'h7fff) out <= 4'b0111;
-		else if((16'h3fff & in) == 16'h3fff) out <= 4'b0110;
-		else if((16'h1fff & in) == 16'h1fff) out <= 4'b0101;
-		else if((16'h0fff & in) == 16'h0fff) out <= 4'b0100;
-		else if((16'h07ff & in) == 16'h07ff) out <= 4'b0011;
-		else if((16'h03ff & in) == 16'h03ff) out <= 4'b0010;
-		else if((16'h01ff & in) == 16'h01ff) out <= 4'b0001;
-		else if((16'h00ff & in) == 16'h00ff) out <= 4'b1111;
-		else if((16'h007f & in) == 16'h007f) out <= 4'b1110;
-		else if((16'h003f & in) == 16'h003f) out <= 4'b1101;
-		else if((16'h001f & in) == 16'h001f) out <= 4'b1100;
-		else if((16'h000f & in) == 16'h000f) out <= 4'b1011;
-		else if((16'h0007 & in) == 16'h0007) out <= 4'b1010;
-		else if((16'h0003 & in) == 16'h0003) out <= 4'b1001;
-		else if((16'h0001 & in) == 16'h0001) out <= 4'b1000;
+		if((16'hffff & in) == 16'hffff) out = 4'b0111;
+		else if((16'h7fff & in) == 16'h7fff) out = 4'b0111;
+		else if((16'h3fff & in) == 16'h3fff) out = 4'b0110;
+		else if((16'h1fff & in) == 16'h1fff) out = 4'b0101;
+		else if((16'h0fff & in) == 16'h0fff) out = 4'b0100;
+		else if((16'h07ff & in) == 16'h07ff) out = 4'b0011;
+		else if((16'h03ff & in) == 16'h03ff) out = 4'b0010;
+		else if((16'h01ff & in) == 16'h01ff) out = 4'b0001;
+		else if((16'h00ff & in) == 16'h00ff) out = 4'b1111;
+		else if((16'h007f & in) == 16'h007f) out = 4'b1110;
+		else if((16'h003f & in) == 16'h003f) out = 4'b1101;
+		else if((16'h001f & in) == 16'h001f) out = 4'b1100;
+		else if((16'h000f & in) == 16'h000f) out = 4'b1011;
+		else if((16'h0007 & in) == 16'h0007) out = 4'b1010;
+		else if((16'h0003 & in) == 16'h0003) out = 4'b1001;
+		else if((16'h0001 & in) == 16'h0001) out = 4'b1000;
 		else out <= 4'b0000;
 	end 
 endmodule
