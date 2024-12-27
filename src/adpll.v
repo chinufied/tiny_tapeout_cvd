@@ -354,7 +354,7 @@ always @(posedge clk) begin
     end
 end
 //sin wave generated in matlab; converted from floating point to hex; and generated assignment code in python
-always@(*) begin
+	always@(posedge clk) begin
 
 SIN_ROM[0] = 12'h000; 
 SIN_ROM[1] = 12'h003; 
