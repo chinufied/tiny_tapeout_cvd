@@ -131,7 +131,7 @@ module encoder (in, out);
 		else if((16'h0007 & in) == 16'h0007) out = 4'b1010;
 		else if((16'h0003 & in) == 16'h0003) out = 4'b1001;
 		else if((16'h0001 & in) == 16'h0001) out = 4'b1000;
-		else out <= 4'b0000;
+		else out = 4'b0000;
 	end 
 endmodule
 
