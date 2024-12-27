@@ -337,7 +337,7 @@ module waveform_gen (
 	 output desired_freq_sig);
 
 reg [31:0] phase_acc;
-
+wire read;
 // Phase accumulator logic
 always @(posedge clk ) begin //or negedge reset
     if (~reset) begin
