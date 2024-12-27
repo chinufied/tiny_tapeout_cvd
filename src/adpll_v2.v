@@ -207,16 +207,12 @@ module vco (vco_clk, in, out, desired_out);
 	reg reset;
 	reg [3:0]in_reg;
 	wire got_it;
-	wire [11:0] sin_out;
-	wire [11:0] cos_out;
 	wire [11:0] squ_out;
 waveform_gen dut (
     .clk(vco_clk),
     .reset(reset),
     .en(en),
     .phase_inc(phase_inc),
-    .sin_out(sin_out),
-	 .cos_out(cos_out),
     .squ_out(squ_out),
 	 .vco_out(out),
 	 .desired_freq_sig(desired_out)
