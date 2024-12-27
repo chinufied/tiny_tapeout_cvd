@@ -336,14 +336,13 @@ module waveform_gen (
 	 output vco_out,
 	 output desired_freq_sig);
 
-
+reg [31:0] phase_acc;
 
 // Phase accumulator logic
 always @(posedge clk ) begin //or negedge reset
     if (~reset) begin
         phase_acc <= 32'b0;
-    end else 
-			if (en && ~read)
+    end else if (en && ~read)
 				begin
 					phase_acc <= phase_acc + phase_inc;
 				end
