@@ -113,23 +113,23 @@ module encoder (in, out);
 	output reg [3:0] out = 0;    
 	always@(*)
 	begin  
-		if((16'hffff & in) == 16'hffff) out = 4'b0111;
-		else if((16'h7fff & in) == 16'h7fff) out = 4'b0111;
-		else if((16'h3fff & in) == 16'h3fff) out = 4'b0110;
-		else if((16'h1fff & in) == 16'h1fff) out = 4'b0101;
-		else if((16'h0fff & in) == 16'h0fff) out = 4'b0100;
-		else if((16'h07ff & in) == 16'h07ff) out = 4'b0011;
-		else if((16'h03ff & in) == 16'h03ff) out = 4'b0010;
-		else if((16'h01ff & in) == 16'h01ff) out = 4'b0001;
-		else if((16'h00ff & in) == 16'h00ff) out = 4'b1111;
-		else if((16'h007f & in) == 16'h007f) out = 4'b1110;
-		else if((16'h003f & in) == 16'h003f) out = 4'b1101;
-		else if((16'h001f & in) == 16'h001f) out = 4'b1100;
-		else if((16'h000f & in) == 16'h000f) out = 4'b1011;
-		else if((16'h0007 & in) == 16'h0007) out = 4'b1010;
-		else if((16'h0003 & in) == 16'h0003) out = 4'b1001;
-		else if((16'h0001 & in) == 16'h0001) out = 4'b1000;
-		else out = 4'b0000;
+		if((16'hffff & in) == 16'hffff) out <= 4'b0111;
+		else if((16'h7fff & in) == 16'h7fff) out <= 4'b0111;
+		else if((16'h3fff & in) == 16'h3fff) out <= 4'b0110;
+		else if((16'h1fff & in) == 16'h1fff) out <= 4'b0101;
+		else if((16'h0fff & in) == 16'h0fff) out <= 4'b0100;
+		else if((16'h07ff & in) == 16'h07ff) out <= 4'b0011;
+		else if((16'h03ff & in) == 16'h03ff) out <= 4'b0010;
+		else if((16'h01ff & in) == 16'h01ff) out <= 4'b0001;
+		else if((16'h00ff & in) == 16'h00ff) out <= 4'b1111;
+		else if((16'h007f & in) == 16'h007f) out <= 4'b1110;
+		else if((16'h003f & in) == 16'h003f) out <= 4'b1101;
+		else if((16'h001f & in) == 16'h001f) out <= 4'b1100;
+		else if((16'h000f & in) == 16'h000f) out <= 4'b1011;
+		else if((16'h0007 & in) == 16'h0007) out <= 4'b1010;
+		else if((16'h0003 & in) == 16'h0003) out <= 4'b1001;
+		else if((16'h0001 & in) == 16'h0001) out <= 4'b1000;
+		else out <= 4'b0000;
 	end 
 endmodule
 
@@ -234,67 +234,67 @@ always@(*)
 		case (in)
 			4'h0 :
 			begin
-				phase_inc = 32'h00029F16;//2 KHz 
+				phase_inc <= 32'h00029F16;//2 KHz 
 			end
 			4'h1 :
 			begin
-				phase_inc = 32'h0003EEA2;//3 KHz
+				phase_inc <= 32'h0003EEA2;//3 KHz
 			end  
 			4'h2 :
 			begin
-				phase_inc = 32'h00053E2D;//4 KHz
+				phase_inc <= 32'h00053E2D;//4 KHz
 			end  
 			4'h3 :
 			begin
-				phase_inc = 32'h00068DB8;//5 KHz
+				phase_inc <= 32'h00068DB8;//5 KHz
 			end 
 			4'h4 :
 			begin
-				phase_inc = 32'h0007DD44;//6 KHz
+				phase_inc <= 32'h0007DD44;//6 KHz
 			end
 			4'h5 :
 			begin
-				phase_inc = 32'h00092CCF;//7 KHz
+				phase_inc <= 32'h00092CCF;//7 KHz
 			end  
 			4'h6 :
 			begin
-				phase_inc = 32'h000A7C5A;//8 KHz
+				phase_inc <= 32'h000A7C5A;//8 KHz
 			end  
 			4'h7 :
 			begin
-				phase_inc = 32'h000BCBE6;//9 KHz
+				phase_inc <= 32'h000BCBE6;//9 KHz
 			end
 			4'h8 :
 			begin
-				phase_inc = 32'h000D1B71; //10 KHz center
+				phase_inc <= 32'h000D1B71; //10 KHz center
 			end
 			4'h9 :
 			begin
-				phase_inc = 32'h000E6AFC;//11 KHz
+				phase_inc <= 32'h000E6AFC;//11 KHz
 			end  
 			4'ha :
 			begin
-				phase_inc = 32'h000FBA88;//12 KHz
+				phase_inc <= 32'h000FBA88;//12 KHz
 			end  
 			4'hb :
 			begin
-				phase_inc = 32'h00110A13;//13 KHz
+				phase_inc <= 32'h00110A13;//13 KHz
 			end
 			4'hc :
 			begin
-				phase_inc = 32'h0012599E;//14 KHz
+				phase_inc <= 32'h0012599E;//14 KHz
 			end
 			4'hd :
 			begin
-				phase_inc = 32'h0013A92A;//15 KHz
+				phase_inc <= 32'h0013A92A;//15 KHz
 			end  
 			4'he :
 			begin
-				phase_inc = 32'h0014F8B5;//16 KHz
+				phase_inc <= 32'h0014F8B5;//16 KHz
 			end  
 			4'hf :
 			begin
-				phase_inc = 32'h00164840;//17 KHz
+				phase_inc <= 32'h00164840;//17 KHz
 			end    
 		endcase
 
