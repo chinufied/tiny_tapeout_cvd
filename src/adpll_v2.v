@@ -337,6 +337,8 @@ module waveform_gen (
 	 output desired_freq_sig);
 
 reg [31:0] phase_acc;
+wire [11:0] lut_addr;
+reg [11:0] lut_addr_reg;
 wire read;
 // Phase accumulator logic
 always @(posedge clk ) begin //or negedge reset
@@ -353,7 +355,16 @@ always @(posedge clk ) begin //or negedge reset
 				end
 end
 
+assign lut_addr = phase_acc[31:20];
+assign read = (phase_inc == 32'h000D1B71);
 
+
+// Latency hiding registers for the LUT address
+always @(posedge clk) begin
+
+        lut_addr_reg <= lut_addr;
+
+end
 // Square wave output
 assign squ_out = (lut_addr_reg[11]) ? 12'b011111111111 : 12'b100000000000;
 assign vco_out = squ_out[11];
